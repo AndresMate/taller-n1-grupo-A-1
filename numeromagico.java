@@ -4,13 +4,11 @@ import java.util.Arrays;
 
 public class numeromagico {
   public static void main(String[] args) {
-    // Define the number to check
     int number = 495;
     int number1;
     number1=number;
     int cont=0;
 
-    // Invert the number
     int inverted = 0;
     while (number > 0) {
       inverted = inverted * 10 + number % 10;
@@ -18,7 +16,6 @@ public class numeromagico {
       cont++;
     }
 
-    // Sort the digits of the number in descending order
     int[] digits = new int[cont];
     for (int i = 0; i < cont ; i++) {
       digits[i] = inverted % 10;
@@ -30,7 +27,6 @@ public class numeromagico {
       descending = descending * 10 + digits[i];
     }
 
-    // Sort the digits of the number in ascending order
     int ascending = 0;
     for (int i = 0; i < cont; i++) {
       ascending = ascending * 10 + digits[i];
