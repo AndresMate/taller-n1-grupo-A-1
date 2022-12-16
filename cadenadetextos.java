@@ -1,4 +1,4 @@
-package taller-n1-grupo-A;
+package taller_n1_grupo_A;
 
 public class cadenadetextos {
     public static void main(String[] args) {

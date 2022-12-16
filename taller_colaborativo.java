@@ -1,4 +1,4 @@
-package taller;
+package taller_n1_grupo_A;
 import java.util.Scanner;
 import java.math.*;
 public class taller_colaborativo {

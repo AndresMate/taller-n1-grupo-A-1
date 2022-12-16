@@ -1,4 +1,4 @@
-package taller;
+package taller_n1_grupo_A;
 public class Romanos {
   public static void main(String[] args) {
     System.out.println(romanoADecimal("X"));
