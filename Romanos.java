@@ -1,7 +1,7 @@
 package taller_n1_grupo_A;
 public class Romanos {
   public static void main(String[] args) {
-    System.out.println(romanoADecimal("X"));
+    System.out.println(romanoADecimal("IIII"));
   }
   public static int romanoADecimal(String romano) {
     int decimal = 0;
