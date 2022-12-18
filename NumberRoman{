@@ -1,0 +1,98 @@
+package taller_n1_grupo_A;
+
+public class RomanNumber {
+		 
+	int input=0;
+	
+	public static int romanValue(char cRoman) {
+	    switch (cRoman) {
+	      case 'I':
+	    	  return 1;
+	      case 'V':
+	    	  return 5;
+		  case 'X':
+		    return 10;
+		  case 'L':
+		    return 50;
+		  case 'C':
+		    return 100;
+		  case 'D':
+		    return 500;
+		  case 'M':
+		    return 1000;
+		  default:
+		    return 0;
+	    }
+	    
+	}
+	
+	public void romanNumber(String input) {
+	    int number = 0;
+	    int anterior = 0;
+	    String aux="";
+	    boolean control=false;
+	    
+	    for(int i=input.length()-1; i>=0; i--) {  	
+		    	int actual = romanValue(input.charAt(i));	
+		    	System.out.println("valor decimal  "+actual);
+		    	if(actual<anterior) {
+		    		number -= actual;
+		    		
+		    		//Los símbolos con base 5 siempre suman, y no pueden estar a la izquierda de uno de mayor valor
+		    		if(actual==5 || actual==50 || actual==500 && actual<anterior) {
+		    			System.out.println("Control1");
+		    			control=true;
+		    			number=0;
+		    		}
+		    		
+		    	}else{
+		    		number += actual;
+		    		
+		    		// (I) y los números con base 10 (X, C y M) pueden repetirse hasta 3 veces consecutivas como sumandos.
+	    			aux+=input.charAt(i);
+	    			if(aux.equals("IIII") || aux.equals("CCCC") || aux.equals("MMMM"))  {
+	    				System.out.println("Control2");
+	    				control=true;
+		    			number=0;
+	    			}
+	    			
+	    			//Los números con base 5 (V, L y D), no pueden repetirse seguidos, 
+	    			if(aux.equals("VV") || aux.equals("LL") || aux.equals("DD")) {
+	    				System.out.println("Control3");
+	    				control=true;
+		    			number=0;
+	    			}
+		    	}
+		    	anterior=actual;
+	    	}
+	    
+	    //CONTROL
+	    if(control==true) {
+	    	number=0;
+	    }
+	    	 
+	    
+	   //AUN EN BORRADOR
+	    
+	  //CONTROL POR SI EXISTE UN LA ENTRADA UN SIMBOLO NO ROMANO
+	    
+	    /*for(int i=roman.length()-1; i>=0; i--) {
+	    	int actual = romanos(roman.charAt(i));
+	    	if(actual==0) {
+	    		System.out.println("NO");
+	    		number=0;
+	    	}
+	    	*/
+	    	
+	    	
+	   // 	
+	   this.input=number;   
+	}
+	
+	public int getInput() {
+		return input;
+	}
+
+	
+	
+}
