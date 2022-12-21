@@ -1,85 +1,102 @@
 
     
 import static java.lang.Math.sqrt;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
  
 public class  factores{
  
-    static int cant_factores = 0;
-    static boolean hay_factores = false;
+    static int nfactores= 0;
+    static boolean factores= false;
     public static void main(String[] args) {
-        int n;
-        Scanner reader = new Scanner(System.in);
+        int number;
+        boolean seguir;
+        do{
+            
+        try{
+        seguir=false;
+        Scanner sc = new Scanner(System.in);
         System.out.printf("Digite uun numero ");
-        n = reader.nextInt();
-         descomponer_factores(n);
-        
+        number = sc.nextInt();
+         desmontar_factor(number);
+
+        }catch(InputMismatchException e){
+            System.out.println("Invalido, debe ingresar un numero");
+            seguir=true;
+        }
+    }while(seguir);
     }
  
-    private static void descomponer_factores(int n) {
-        int productoria = 1;
-        int copia_n = n;
-        int factor_primo = 2;
+    public static void desmontar_factor(int number) {
+        int producto= 1;
+        int number1 = number;
+        int factorp= 2;
         do {
-            int resto = copia_n % factor_primo;
-            if (resto == 0) {
-                copia_n /= factor_primo;
-                productoria *= factor_primo;
-                cant_factores++;
+            int subfactor = number1 % factorp;
+            if (subfactor == 0) {
+                number1 /= factorp;
+                producto*= factorp;
+                nfactores++;
             } else {
-                if (cant_factores > 0) {
-                    escribe_factor(factor_primo);
+                if (nfactores> 0) {
+                    ingfactor(factorp);
                 }
-                factor_primo = siguiente_primo(factor_primo);
+                factorp = primo(factorp);
             }
-        } while (productoria != n);
-        escribe_factor(factor_primo);
+        } while (producto != number);
+       ingfactor(factorp);
     }
  
-    private static int siguiente_primo(int n) {
+    public static int primo(int number) {
         do {
-            n++;
-        } while (!es_primo(n));
-        return n;
+            number++;
+        } while (!si_primo(number));
+        return number;
     }
  
-    private static boolean es_primo(int n) {
-        if (n <= 0) {
+    public static boolean si_primo(int number) {
+        if (number <= 0) {
             return false;
         }
         int cant_divisores = 0;
-        boolean encontro_divisores = false;
-        int limite = (int) sqrt(n);
+        boolean divisores = false;
+        int rango = (int) sqrt(number);
         int i = 2;
-        while (i <= limite && !encontro_divisores) {
-            if (n % i == 0) {
+        while (i <= rango && !divisores) {
+            if (number % i == 0) {
                 cant_divisores++;
-                encontro_divisores = true;
+                divisores = true;
             }
             i++;
         }
-        if (cant_divisores > 0 || n == 1) {
+        if (cant_divisores > 0 || number == 1) {
             return false;
         }
         return true;
+        
     }
- 
-    private static void escribe_factor(int factor_primo) {
-        if (hay_factores) {
-            System.out.printf("x");
+   
+    public static void ingfactor(int factorp) {
+        
+        if (factores) {
+            
+            System.out.printf(" X ");
         } else {
-            hay_factores = true;
+            factores= true;
         }
-        if (cant_factores == 1) {
-            System.out.printf("%d", factor_primo);
+        
+        if (nfactores== 1) {
+            System.out.printf("%d"+" Es un numero primo, no se puede descomponer", factorp);
         } else {
-            System.out.printf("%d^%d", factor_primo, cant_factores);
+           
+            System.out.printf(" %d^%d", factorp, nfactores);
         }
-        cant_factores = 0;
-
+        nfactores= 0;
 
     }
 
-
-       
 }
+
+    
+
