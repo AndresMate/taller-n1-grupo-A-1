@@ -1,0 +1,142 @@
+
+import java.util.Scanner;
+
+public class Romanos {
+	 
+	int input=0;
+////
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner (System.in);
+		Romanos ro = new Romanos ();
+		
+		//FOR DE PRUEBAS
+		for(int i=0; i<10; i++) {
+			System.out.print("-- ");
+			String in=sc.nextLine();
+			ro.romanNumber(in.toUpperCase());
+			System.out.print("SALIDA  ");
+			System.out.print(ro.getInput() + "\n");
+		}
+		System.out.println("FIN");
+		
+	}
+////
+	public static int romanValue(char cRoman) {
+	    switch (cRoman) {
+	      case 'I':
+	    	  return 1;
+	      case 'V':
+	    	  return 5;
+		  case 'X':
+		    return 10;
+		  case 'L':
+		    return 50;
+		  case 'C':
+		    return 100;
+		  case 'D':
+		    return 500;
+		  case 'M':
+		    return 1000;
+		  default:
+		    return 0;
+	    }  
+	}
+		
+	public void romanNumber(String input) {
+		int decimal = 0;
+	    int anterior = 0;
+	    boolean resta=false;
+	    boolean control=false;
+	    int [] aux4 = {0,0,0,0};
+	    int [] aux5 = {0,0,0};
+	    int aux=1;
+	    
+	    for(int i=input.length()-1; i>=0; i--) {  
+	    		int actual = romanValue(input.charAt(i));
+	    		
+	    		//Control número no romano
+	    		if(actual==0) {
+	    			control=true;
+	    		}
+		    	
+		    	if(actual<anterior) {
+		    		
+		    		//Los símbolos de base 5 siempre suman, y no pueden estar a la izquierda de uno de mayor valor.
+		    		if(actual/5==1 || actual/5==10 || actual/5==100){
+		    			System.out.println(i);
+		    			System.out.println("CONTROL3");
+		    			control=true;
+		    		}
+		    		//I sólo puede restar a V y a X. - X sólo resta a L y a C - C sólo resta a D y a M.
+		    		if(anterior!=actual*5 && anterior!=actual*10 && (actual==1 || actual==10 || actual==100) ){
+		    			System.out.println("CONTROL 4 - RESUMIDO");
+		    			control=true;
+		    		}
+		    		//Control si el algoritmo realizo una suma antes de una resta
+		    		if(anterior!=decimal) {
+		    			control=true;
+		    		}
+		    		//Control si detecta un simbolo menor anteriormente de realizar una resta
+		    		if(resta) {
+		    			System.out.println("CONTROL1");
+		    			control=true;
+		    		}
+		    		resta=true;
+		    		//
+		    		decimal -= actual;   		
+		    	}else{
+		    		
+		    		if(actual==anterior) {
+		    			//(I, X, C y M) pueden repetirse hasta 3 veces consecutivas como sumandos.    			
+		    			for(int j=0; j<aux4.length; j++) {
+		    				if(actual == 1*aux) {
+		    					aux4[j]+=1;
+		    				}else {
+		    					aux*=10;
+		    				}
+		    			}
+		    			aux=1;
+		    			
+		    			//Control si se detecta un simbolo igual al que anteriormente realizo una resta
+		    			if(resta) {
+		    				System.out.println("CONTROL2");
+			    			control=true;
+		    			}		
+		    		}
+		    		//Los números con base 5 (V, L y D), no pueden repetirse  			
+	    			for(int j=0; j<aux5.length; j++) {
+	    				if(actual== 5*aux ) {
+	    					aux5[j]+=1;
+	    				}else {
+	    					aux*=10;
+	    				}	
+	    			}
+	    			aux=1;
+	    			
+		    		//
+		    		decimal += actual;
+		    	}
+    			//
+		    	anterior=actual;    	
+	    }
+	    
+	    if(aux4[0]==3 || aux4[1]==3 || aux4[2]==3 || aux4[3]==3 || aux5[0]==2 || aux5[1]==2 || aux5[2]==2) {
+	    	System.out.println("CONTROL 4-2");
+	    	control=true;
+	    }
+	    if(control) {
+	    	decimal=0;
+	    }
+	    //
+	   this.input=decimal;   
+	}
+	
+	
+	public int getInput() {
+		return input;
+	}
+
+	
+	
+}
