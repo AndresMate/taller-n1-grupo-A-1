@@ -3,12 +3,10 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.math.*;
 import java.util.Arrays;
-import java.util.InputMismatchException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.text.ParseException;
-import java.util.Scanner;
 public class taller_colaborativo {
 
 
@@ -352,9 +350,6 @@ public class taller_colaborativo {
      return decimal;
      }
 
-
-
-
      public static void getfecha(String message) throws ParseException {
       Scanner leer=new Scanner(System.in);
       String pattern = "dd/MM/yyyy";
@@ -364,13 +359,5 @@ public class taller_colaborativo {
       DateFormat formateadorFechaLarga = DateFormat.getDateInstance(DateFormat.LONG);
       System.out.println(formateadorFechaLarga.format(date));
 }
-
-
-
-
-
- 
-
-
 
   }
