@@ -192,6 +192,7 @@ public static void getfactores(String mensaje) {
 
     }catch(InputMismatchException e){
         System.out.println("Invalido, debe ingresar un numero");
+        sc.next();
         seguir=true;
     }
 }while(seguir);
@@ -365,10 +366,6 @@ public static void ingfactor(int factorp) {
        System.out.println(number1 + " No es un numero magico.");
      }
    }
-
-
-
-
 
 
      //---------------EJERCICIO N.6-----------------
