@@ -12,7 +12,7 @@ import java.text.ParseException;
 
 public class TallerColaborativo {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args)throws ParseException {
 		Scanner sc =new Scanner(System.in);
 		int op=0;
 		int input=0;
@@ -50,10 +50,10 @@ public class TallerColaborativo {
 				System.out.println(numeroEgolatra(input)); 
 				break;
 			case 5:
-				//getnumeromagico("digite numero"); 
+				getnumeromagico("digite numero"); 
 				break;
 			case 6:
-			  //  getfecha("dijite la fecha en formato dd/MM/aaaa");
+			  getfecha("dijite la fecha en formato dd/MM/aaaa");
 				break;
 			case 7:
 				System.out.println("Fin Algoritmo");
@@ -316,7 +316,7 @@ public class TallerColaborativo {
     
     
     
-    //---------------EJERCICIO N.5-----------------
+
 
     public static void getnumeromagico(String mensaje) {
      Scanner leer=new Scanner(System.in);

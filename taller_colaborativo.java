@@ -177,7 +177,7 @@ public class taller_colaborativo {
      int number=0;
      boolean x=false;
      while(x==false){
-     System.out.println(message);
+     System.out.println(mensaje);
      try{
      number = leer.nextInt();
      x=true;
