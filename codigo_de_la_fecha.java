@@ -13,7 +13,6 @@ public class codigo_de_la_fecha {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         System.out.println("dijite la fecha en formato dd/MM/aaaa");
         Date date = simpleDateFormat.parse(leer.nextLine());
-        System.out.println(date);
         DateFormat formateadorFechaLarga = DateFormat.getDateInstance(DateFormat.LONG);
         System.out.println(formateadorFechaLarga.format(date));
 }}

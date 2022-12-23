@@ -6,19 +6,18 @@ import java.util.Scanner;
 
 public class numeromagico {
   public static void main(String[] args) {
-        Scanner leer=new Scanner(System.in);
-
-        int number=0;
+     Scanner leer=new Scanner(System.in);
+    int number=0;
     boolean x=false;
     while(x==false){
     System.out.println("Dijite numero");
     try{
     number = leer.nextInt();
     x=true;
-  }catch(InputMismatchException e){
+    }catch(InputMismatchException e){
     System.out.println("por favor dijite solo numeros enteros");
     leer.nextLine();
-  }}
+     }}
 
     int number1;
     number1=number;

@@ -17,7 +17,7 @@ public class  factores{
         try{
         seguir=false;
         Scanner sc = new Scanner(System.in);
-        System.out.printf("Digite uun numero ");
+        System.out.printf("Digite un numero ");
         number = sc.nextInt();
          desmontar_factor(number);
 
