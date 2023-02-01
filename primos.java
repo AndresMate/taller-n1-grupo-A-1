@@ -1,5 +1,3 @@
-package taller_n1_grupo_A;
-
 import java.util.Scanner;
 import java.util.Scanner;
 import java.util.InputMismatchException;
@@ -149,13 +147,13 @@ public class primos {
            
            if (factores) {
                
-               System.out.printf(" X ");
+               System.out.printf(" X");
            } else {
                factores= true;
            }
            
            if (nfactores== 1) {
-               System.out.printf("%d"+" Es un numero primo, no se puede descomponer", factorp);
+               System.out.printf("%d", factorp);
            } else {
               
                System.out.printf(" %d^%d", factorp, nfactores);
