@@ -1,4 +1,4 @@
-package taller;
+package taller_n1_grupo_A;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
