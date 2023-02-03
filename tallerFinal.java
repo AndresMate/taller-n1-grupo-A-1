@@ -1,10 +1,10 @@
-
+package taller_n1_grupo_A;
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.util.Arrays;
 
-public class TallerFinal {
+public class tallerFinal {
 	
 	public static void main(String[] args) {
 		Scanner sc =new Scanner(System.in);
