@@ -1,3 +1,5 @@
+package taller_n1_grupo_A;
+
 import java.util.Scanner;
 import java.util.Scanner;
 import java.util.InputMismatchException;

@@ -1,13 +1,13 @@
+package taller_n1_grupo_A;
 
-import java.util.Scanner;
-import java.util.InputMismatchException;
-import java.math.*;
-import java.sql.SQLOutput;
-import java.util.Arrays;
+
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.text.ParseException;
+import java.text.SimpleDateFormatr;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 public class taller_final {
     public static void main(String[] args)throws ParseException {
 		Scanner sc =new Scanner(System.in);

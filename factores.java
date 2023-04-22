@@ -1,3 +1,5 @@
+package taller_n1_grupo_A;
+
 
     
 import static java.lang.Math.sqrt;
