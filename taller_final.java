@@ -200,7 +200,9 @@ public static void getfactores(String mensaje) {
 
 public static void desmontar_factor(int number) {
     int producto= 1;
-    int number1 = number;
+    int number1 = 0;
+    number1 = number;
+    
     int factorp= 2;
     do {
         int subfactor = number1 % factorp;
